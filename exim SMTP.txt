@@ -1,0 +1,87 @@
+
+Use exim4 as smarthost SMTP server.(UBUNTU)
+
+apt-get install exim4
+
+su -
+
+$ dpkg-reconfigure exim4-config
+
+General type of mail configuration: mail sent by smarthost; received via SMTP or fetchmail
+System mail name: localhost
+Ip Address to listen on: 127.0.0.1
+Other destinations~: yourdyndns.domain.com
+Machines to Relay for: <empty>
+IP address or hostname of the outgoing smarthost: smtp.gmail.com::587
+Hide local mail name in outgoing mail: No
+Keep number of DNS queries minimal: No
+Delivery method for local mail: mbox format in /var/mail/
+Split configuration into small files: Yes
+
+vi /etc/exim4/passwd.client
+
+gmail-smtp.l.google.com:user_relay@gmail.com:password_relay
+*.google.com:user_relay@gmail.com:password_relay
+smtp.gmail.com:user_relay@gmail.com:password_relay
+
+$ chmod 640 /etc/exim4/passwd.client
+
+$ chown root:Debian-exim /etc/exim4/passwd.client
+
+
+$ vi /etc/exim4/email-addresses
+
+root@localhost: user_relay@gmail.com
+
+$ chmod 640 /etc/exim4/email-addresses
+
+5. Verifing Exim config.
+
+$ vi /etc/exim4/update-exim4.conf
+
+dc_eximconfig_configtype='smarthost'
+dc_other_hostnames='yourdyndns.domain.com'
+dc_local_interfaces='127.0.0.1'
+dc_readhost='yourdyndns.domain.com'
+dc_relay_domains="
+dc_minimaldns='false'
+dc_relay_nets="
+dc_smarthost='smtp.gmail.com::587'
+CFILEMODE='644'
+dc_use_split_config='true'
+dc_hide_mailname='false'
+dc_mailname_in_oh='true'
+dc_localdelivery='mail_spool'
+
+6. restart service MTA.
+
+$ /etc/init.d/exim4 restart
+
+
+(RedHat)centos-fedora
+yum install exim
+
+So what to do is: edit "/etc/exim/exim.conf", add:
+
+
+# routers section
+send_via_gmail:
+  driver = manualroute
+  domains = ! +local_domains
+  transport = gmail_smtp
+  route_list = * gmail-smtp.l.google.com
+
+# transports section
+gmail_smtp:
+  driver = smtp
+  port = 587
+  hosts_require_auth = gmail-smtp.l.google.com
+  hosts_require_tls = gmail-smtp.l.google.com
+
+# authenticators section
+gmail_login:
+  driver = plaintext
+  public_name = LOGIN
+  client_send = : youraccount@gmail.com : yourpassword
+
+[root@localhost ~]# service exim start

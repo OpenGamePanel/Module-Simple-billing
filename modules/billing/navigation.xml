@@ -1,0 +1,20 @@
+<navigation>
+  <!-- User Side -->
+  <page key="shop" file="shop.php" access="user,admin" />
+  <page key="cart" file="cart.php" access="user,admin" />
+  <page key="add_to_cart" file="add_to_cart.php" access="user,admin" />
+  <page key="paypal" file="paypal.php" access="user,admin" /> 
+  <page key="paygol" file="paygol.php" access="user,admin" /> 
+  <page key="skrill" file="skrill.php" access="user,admin" />
+  <page key="robokassa" file="robokassa.php" access="user,admin" />
+  <!-- Admin Side -->
+  <page key="shop_settings" file="settings.php" access="admin" />
+  <page key="services" file="services.php" access="admin" />
+  <page key="orders" file="orders.php" access="admin" />
+  <!-- Billing -->
+  <page key="paid" file="paid.php" access="user,admin" />
+  <page key="bill" file="bill.php" access="user,admin" /> 
+  <page key="create_servers" file="create_servers.php" access="user,admin" />
+  <!-- Guest -->
+  <page key="shop_guest" file="shop_guest.php" access="guest" />
+</navigation>
