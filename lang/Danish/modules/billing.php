@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2014 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,7 +22,6 @@
  *
  */
 
-// Shop Settings
 define('currency', "Currency");
 define('available_invoice_types', "Available Invoice Types");
 define('hourly', "Hourly");
@@ -42,9 +41,7 @@ define('skrill_merchant_info', "Skrill merchant information");
 define('skrill_merchant_id', "Merchant ID.");
 define('skrill_email', "Skrill Email");
 define('skrill_secret_word', "Secret word");
-define('skrill_secret_word_info', "The password must be set from your Skrill merchant account,<br>
-									at <b>Settings</b>, click on <b>Developer Settings</b>,<br>
-									If this option is not listed send an email to <i>merchantservices@skrill.com</i>.");
+define('skrill_secret_word_info', "The password must be set from your Skrill merchant account,<br>at <b>Settings</b> click on <b>Developer Settings</b>.<br>If this option is not listed send an email to <i>merchantservices@skrill.com</i>.");
 define('hash_stored_correctly', "Hash stored correctly");
 define('currency_not_available_at', "The currency \"%s\" is not available at %s.");
 define('robokassa', "Robokassa");
@@ -52,8 +49,6 @@ define('robokassa_service', "Robokassa service");
 define('robokassa_merchant_login', "Merchant Login");
 define('robokassa_securepass1', "Secure Password 1");
 define('robokassa_securepass2', "Secure Password 2");
-
-// Shop
 define('your_cart', "Your Cart");
 define('starting_on', "Starting on");
 define('slots', "Slots");
@@ -67,7 +62,7 @@ define('service_name', "Service name");
 define('rcon_pass', "RCON password");
 define('ftp_pass', "FTP password");
 define('available_ips', "Available IPs");
-define('max_players', "Max Players");
+define('max_players', "Max Spillere");
 define('invoice_duration', "Invoice Duration");
 define('calculate_price', "Calculate Price");
 define('buy', "BUY");
@@ -96,8 +91,6 @@ define('enable_server', "Enable server");
 define('success', "SUCCESS");
 define('redirecting_to_game_monitor', "Redirecting to Game Monitor...");
 define('starting_installations', "Starting installations...");
-
-// Orders
 define('order_id', "Order ID");
 define('home_name', "Home Name");
 define('tax', "Tax");
@@ -116,10 +109,8 @@ define('remove_from_cart', "Remove From Cart");
 define('remove_cart', "Remove Cart");
 define('there_are_no_orders_in_cart', "There are no orders in this cart.");
 define('redirecting_to', "Redirecting to %s...");
-
-// Services
 define('id', "ID#");
-define('remote_server', "Remote Server");
+define('remote_server', "Fjern Server");
 define('price_hourly', "Price Hourly");
 define('price_monthly', "Price Monthly");
 define('price_year', "Price Year");
@@ -134,20 +125,18 @@ define('select_install_method', "Select install method");
 define('url_for_manual_install', "URL For Manual Install");
 define('description', "Description");
 define('image_url', "Image URL");
-define('access_rights', "Access Rights");
+define('access_rights', "Adgangs Rettigheder");
 define('allow_update', "Allow Update");
-define('allow_file_management', "Allow File Management");
-define('allow_parameter_usage', "Allow Parameter Usage");
+define('allow_file_management', "Filhåndtering");
+define('allow_parameter_usage', "Tillad Parameter brug");
 define('allow_extra_parameters_usage', "Allow Extra Parameters Usage");
 define('allow_ftp_usage', "Allow FTP Usage");
 define('allow_custom_fields', "Allow Custom Fields");
 define('enabled', "Enabled");
-define('disabled', "Disabled");
+define('disabled', "Slået fra ");
 define('steam', "Steam");
 define('rsync', "Rsync");
 define('manual_from_url', "Manual From URL");
-
-// View Invoice
 define('business', "Business");
 define('business_email', "Business Email");
 define('game_server_order', "Game Server Order");

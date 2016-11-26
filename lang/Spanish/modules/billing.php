@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2012 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -21,8 +21,6 @@
  * Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
  *
  */
-
-// Shop Settings
 
 define('currency', "Moneda");
 define('available_invoice_types', "Tipo de facturación");
@@ -43,9 +41,7 @@ define('skrill_merchant_info', "Información de cuenta Skrill");
 define('skrill_merchant_id', "ID de Negocio.");
 define('skrill_email', "Email de Skrill");
 define('skrill_secret_word', "Palabra secreta");
-define('skrill_secret_word_info', "La palabra secreta se configura desde su cuenta de negocio de Skrill,<br>
-									en <b>Ajustes</b> pulse sobre <b>Ajustes del desarrollador</b>,<br>
-									si esta opción no aparece envie un email a <i>merchantservices@skrill.com</i>.");
+define('skrill_secret_word_info', "La palabra secreta se configura desde su cuenta de negocio de Skrill,<br>en <b>Ajustes</b> pulse sobre <b>Ajustes del desarrollador</b>,<br>si esta opción no aparece envie un email a <i>merchantservices@skrill.com</i>.");
 define('hash_stored_correctly', "Hash guardado correctamente");
 define('currency_not_available_at', "La divisa \"%s\" no esta disponible en %s.");
 define('robokassa', "Robokassa");
@@ -53,8 +49,6 @@ define('robokassa_service', "Servicio Robokassa");
 define('robokassa_merchant_login', "Ususrio Robokassa");
 define('robokassa_securepass1', "Contraseña Segura 1");
 define('robokassa_securepass2', "Contraseña Segura 2");
-
-// Shop
 define('your_cart', "Su Carro");
 define('starting_on', "Desde");
 define('slots', "Slots");
@@ -68,7 +62,7 @@ define('service_name', "Nombre del servicio");
 define('rcon_pass', "Contraseña RCON");
 define('ftp_pass', "Contraseña FTP");
 define('available_ips', "IP disponibles");
-define('max_players', "Max Jugadores");
+define('max_players', "Max Players");
 define('invoice_duration', "Duración");
 define('calculate_price', "Calcular Precio");
 define('buy', "Comprar");
@@ -80,6 +74,7 @@ define('total', "Total");
 define('save', "Guardar");
 define('you_need_to', "Necesitas");
 define('register', "Registrarte");
+define('and', "y");
 define('log_in', "Loguearte");
 define('to_purchase_a_service', "para comprar un servicio");
 define('available_services', "Servicios disponibles");
@@ -93,12 +88,9 @@ define('expiration_date', "Fecha de caducidad");
 define('removal_date', "Fecha de eliminación");
 define('installation_date', "Fecha de instalación");
 define('enable_server', "Reactivar servicio");
-define('success', "COMPLETADO");
+define('success', "Exito");
 define('redirecting_to_game_monitor', "Redireccionando al monitor...");
 define('starting_installations', "Iniciando instalaciones...");
-
-// Orders
-
 define('order_id', "ID de pedido");
 define('home_name', "Nombre Principal");
 define('tax', "Impuesto");
@@ -117,8 +109,6 @@ define('remove_from_cart', "Quitar Del Carro");
 define('remove_cart', "Eliminar El Carro");
 define('there_are_no_orders_in_cart', "No hay ningún pedido en su carro.");
 define('redirecting_to', "Redirigiendo a %s...");
-
-// Services
 define('id', "ID#");
 define('remote_server', "Servidor Remoto");
 define('price_hourly', "Precio por hora");
@@ -137,18 +127,16 @@ define('description', "Descripción");
 define('image_url', "URL de la imagen");
 define('access_rights', "Derechos de acceso");
 define('allow_update', "Habilitar Actualizaciones");
-define('allow_file_management', "Habilitar Edicion de archivos");
-define('allow_parameter_usage', "Habilitar Parametros");
+define('allow_file_management', "Permitir explorar archivos");
+define('allow_parameter_usage', "Permitir comandos personalizados");
 define('allow_extra_parameters_usage', "Habilitar Parametros Extra");
 define('allow_ftp_usage', "Habilitar FTP");
-define('allow_custom_fields', "Habilitar Campos Personalizados");
+define('allow_custom_fields', "Permite campos personalizados");
 define('enabled', "Activado");
-define('disabled', "Desactivado");
+define('disabled', "Deshabilitado");
 define('steam', "Steam");
 define('rsync', "Rsync");
 define('manual_from_url', "Manual desde URL");
-
-// View Invoice
 define('business', "Negocio");
 define('business_email', "Email del Negocio");
 define('game_server_order', "Pedido De Servidor De Juegos");
@@ -162,6 +150,4 @@ define('price', "Precio");
 define('invoice', "Factura");
 define('print_invoice', "Imprimir Factura");
 define('extend', "Extender");
-define('and', "y");
-
 ?>
