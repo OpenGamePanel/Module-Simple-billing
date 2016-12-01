@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) Copyright (C) 2008 - 2012 The OGP Development Team
+ * Copyright (C) 2008 - 2016 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -22,139 +22,128 @@
  *
  */
 
-// Shop Settings
 define('currency', "Devise");
-define('available_invoice_types', "Types de facturation disponibles");
+define('available_invoice_types', "Types de Facturation disponibles");
 define('hourly', "Par heure");
 define('monthly', "Par mois");
 define('annually', "Par an");
-define('tax_amount', "Montant de la taxe");
+define('tax_amount', "Montant de la Taxe");
 define('paypal_email', "E-mail Paypal");
-define('update_settings', "Mise ‡ jour des paramËtres");
-define('settings_updated', "ParamËtres mis ‡ jour.");
+define('update_settings', "Mise √† jour des param√®tres");
+define('settings_updated', "Param√®tres mis √† jour.");
 define('payment_gateway', "Moyen de paiement");
-define('paygol_service', "PayGol");
+define('paygol_service', "Service PayGol");
 define('paygol_service_id', "PayGol Service ID");
 define('paypal', "PayPal");
 define('paygol', "PayGol");
 define('skrill', "Skrill");
-define('skrill_merchant_info', "Skrill merchant information");
-define('skrill_merchant_id', "Merchant ID.");
-define('skrill_email', "Skrill Email");
-define('skrill_secret_word', "Secret word");
-define('skrill_secret_word_info', "The password must be set from your Skrill merchant account,<br>
-									at <b>Settings</b>, click on <b>Developer Settings</b>,<br>
-									If this option is not listed send an email to <i>merchantservices@skrill.com</i>.");
-define('hash_stored_correctly', "Hash stored correctly");
-define('currency_not_available_at', "The currency \"%s\" is not available at %s.");
+define('skrill_merchant_info', "Information Marchand Skrill");
+define('skrill_merchant_id', "ID Marchand.");
+define('skrill_email', "E-mail Skrill");
+define('skrill_secret_word', "Mot secret");
+define('skrill_secret_word_info', "Le mot de passe doit √™tre d√©fini √† partir de votre compte marchand Skrill,<br>√† <b>Param√®tres</b>, cliquez sur <b>Param√®tres D√©veloppeur</b>,<br>Si cette option n'est pas list√©e, veuillez contacter par e-mail <i>merchantservices@skrill.com</i>.");
+define('hash_stored_correctly', "Hash correctement stock√©");
+define('currency_not_available_at', "La devise \"%s\" n'est pas disponible pour %s.");
 define('robokassa', "Robokassa");
-define('robokassa_service', "Robokassa service");
-define('robokassa_merchant_login', "Merchant Login");
-define('robokassa_securepass1', "Secure Password 1");
-define('robokassa_securepass2', "Secure Password 2");
-
-// Shop
+define('robokassa_service', "Service Robokassa");
+define('robokassa_merchant_login', "Login Marchand");
+define('robokassa_securepass1', "Mot de passe s√©curis√© 1");
+define('robokassa_securepass2', "Mot de passe s√©curis√© 2");
 define('your_cart', "Votre panier");
-define('starting_on', "DËs");
-define('slots', "slots");
+define('starting_on', "D√®s");
+define('slots', "Slots");
 define('hour', "Heure");
 define('month', "Mois");
-define('year', "AnnÈe");
+define('year', "Ann√©e");
 define('hours', "Heures");
 define('months', "Mois");
-define('years', "AnnÈes");
+define('years', "Ann√©es");
 define('service_name', "Nom du service");
 define('rcon_pass', "Mot de passe RCON");
 define('ftp_pass', "Mot de passe FTP");
 define('available_ips', "IPs disponibles");
-define('max_players', "Joueurs maximums");
-define('invoice_duration', "DurÈe");
-define('calculate_price', "Calculer le prix");
+define('max_players', "Joueurs max");
+define('invoice_duration', "Dur√©e");
+define('calculate_price', "Calculer le Prix");
 define('buy', "ACHETER");
-define('back_to_list', "Retourner ‡ la liste");
+define('back_to_list', "Retourner √† la liste");
 define('ip', "IP");
 define('subtotal', "Sous-total");
 define('rate', "Taux");
 define('total', "Total");
-define('save', "Sauvegarder");
+define('save', "Enregistrer");
 define('you_need_to', "Vous devez vous");
 define('register', "enregistrer");
 define('and', "et vous");
 define('log_in', "connecter");
 define('to_purchase_a_service', "pour acheter un service");
 define('available_services', "Services disponibles");
-define('payment_is_pending_of_approval', "The payment is pending of approval.");
-define('back_to_your_cart', "Go back to your cart.");
-define('expired', "Expired");
-define('removed', "Removed");
-define('extended', "Extended");
-define('installation_and_expiration_date', "Installation and expiration date");
-define('expiration_date', "Expiration date");
-define('removal_date', "Removal date");
-define('installation_date', "Installation date");
-define('enable_server', "Enable server");
-define('success', "SUCCESS");
-define('redirecting_to_game_monitor', "Redirecting to Game Monitor...");
-define('starting_installations', "Starting installations...");
-
-// Orders
-define('order_id', "Commande ID");
-define('home_name', "Nom du service");
+define('payment_is_pending_of_approval', "Le paiement est en attente d'approbation.");
+define('back_to_your_cart', "Retourner au panier.");
+define('expired', "Expir√©");
+define('removed', "Supprim√©");
+define('extended', "Prolong√©");
+define('installation_and_expiration_date', "Installation et date d'expiration");
+define('expiration_date', "Date d'expiration");
+define('removal_date', "Date de suppresion");
+define('installation_date', "Date d'installation");
+define('enable_server', "Activer le serveur");
+define('success', "Succ√®s");
+define('redirecting_to_game_monitor', "Redirection vers le Gestionnaire de Serveurs");
+define('starting_installations', "D√©marrage de l'installation...");
+define('order_id', "ID de Commande");
+define('home_name', "Nom du Service");
 define('tax', "Taxe");
-define('pay_from', "Payer ‡ partir de %s");
-define('set_as_paid', "DÈfinir comme payÈ");
-define('create_server', "CrÈer le serveur");
-define('see_invoice', "Voir la facture");
-define('paid', "PayÈ");
-define('not_paid', "Non payÈ");
+define('pay_from', "Payer √† partir de %s");
+define('set_as_paid', "D√©finir comme pay√©");
+define('create_server', "Cr√©er le Serveur");
+define('see_invoice', "Voir la Facture");
+define('paid', "Pay√©");
+define('not_paid', "Non pay√©");
 define('procesing_payment', "Paiement en cours");
-define('paid_and_installed', "PayÈ et installÈ");
-define('add_to_cart', "Ajouet au panier");
+define('paid_and_installed', "Pay√© et install√©");
+define('add_to_cart', "Ajouter au panier");
 define('cart_id', "ID du panier");
-define('order_desc', "Description de la commande");
+define('order_desc', "Description de la Commande");
 define('remove_from_cart', "Supprimer du panier");
 define('remove_cart', "Supprimer le panier");
 define('there_are_no_orders_in_cart', "Il n'y a pas de commande dans ce panier.");
 define('redirecting_to', "Redirection vers %s...");
-
-// Services
 define('id', "ID#");
-define('remote_server', "Serveur distant");
+define('remote_server', "Serveur Distant");
 define('price_hourly', "Prix / heure");
 define('price_monthly', "Prix / mois");
-define('price_year', "Prix / annÈe");
-define('service_image_url', "URL vers image du service");
+define('price_year', "Prix / ann√©e");
+define('service_image_url', "URL de Service d'Image");
 define('remove_service', "Supprimer le service");
 define('add_service', "Ajouter un service");
 define('current_services', "Services existants");
-define('max_slot_qty', "QuantitÈ de slots max.");
-define('min_slot_qty', "QuantitÈ de slots min.");
+define('max_slot_qty', "Quantit√© de Slots max.");
+define('min_slot_qty', "Quantit√© de Slots min.");
 define('ftp_account', "Compte FTP");
-define('select_install_method', "MÈthode d'installation");
+define('select_install_method', "Choisir la m√©thode d'installation");
 define('url_for_manual_install', "URL pour installation manuelle");
 define('description', "Description");
 define('image_url', "URL de l'image");
-define('access_rights', "Droits d'accËs");
-define('allow_update', "Autoriser la mise ‡ jour");
-define('allow_file_management', "Autoriser la gestion des fichiers");
-define('allow_parameter_usage', "Autoriser les paramËtres");
-define('allow_extra_parameters_usage', "Autoriser les paramËtres personnalisÈs");
+define('access_rights', "Droits d'acc√®s");
+define('allow_update', "Autoriser la Mise √† Jour");
+define('allow_file_management', "Autoriser la Gestion des Fichiers");
+define('allow_parameter_usage', "Autoriser l'usage des Param√®tres");
+define('allow_extra_parameters_usage', "Autoriser les Param√®tres Personnalis√©s");
 define('allow_ftp_usage', "Autoriser le FTP");
-define('allow_custom_fields', "Allow Custom Fields");
-define('enabled', "ActivÈ");
-define('disabled', "DÈsactivÈ");
+define('allow_custom_fields', "Autoriser les Champs Personnalis√©s");
+define('enabled', "Activ√©");
+define('disabled', "D√©sactiv√© ");
 define('steam', "Steam");
 define('rsync', "Rsync");
 define('manual_from_url', "Manuelle depuis une URL");
-
-// View Invoice
-define('business', "Business");
-define('business_email', "E-mail business");
-define('game_server_order', "Commande serveur de jeux");
+define('business', "Entreprise");
+define('business_email', "E-mail d'entreprise");
+define('game_server_order', "Commande Serveur de Jeu");
 define('item', "Objet");
-define('slot_cost', "Co˚t du slot");
-define('slot_quantity', "QuantitÈ de slot");
-define('order_price', "Prix de la commande");
+define('slot_cost', "Co√ªt du Slot");
+define('slot_quantity', "Quantit√© de Slots");
+define('order_price', "Prix de la Commande");
 define('order', "Commande");
 define('date', "Date");
 define('price', "Prix");
