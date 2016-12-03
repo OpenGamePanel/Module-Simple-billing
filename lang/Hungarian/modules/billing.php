@@ -27,7 +27,7 @@ define('available_invoice_types', "Available Invoice Types");
 define('hourly', "Óránkénti");
 define('monthly', "Havi");
 define('annually', "Évente");
-define('tax_amount', "Tax Amount");
+define('tax_amount', "Adó összege");
 define('paypal_email', "PayPal e-mail");
 define('update_settings', "Beállítások frissítése");
 define('settings_updated', "Beállítások frissítve.");
