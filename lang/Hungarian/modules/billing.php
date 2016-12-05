@@ -23,7 +23,7 @@
  */
 
 define('currency', "Valuta");
-define('available_invoice_types', "Available Invoice Types");
+define('available_invoice_types', "Elérhető számla típusok");
 define('hourly', "Óránkénti");
 define('monthly', "Havi");
 define('annually', "Évente");
