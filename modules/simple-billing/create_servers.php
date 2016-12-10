@@ -75,7 +75,7 @@ function exec_ogp_module()
 				
 				//Add Game home to database
 				$rserver = $db->getRemoteServer($remote_server_id);
-				$game_path = "/home/".$rserver['ogp_user']."/OGP_User_Files/billing/";
+				$game_path = "/home/".$rserver['ogp_user']."/OGP_User_Files/simple-billing/";
 				$home_id = $db->addGameHome( $remote_server_id, $user_id, $home_cfg_id, $game_path, $home_name, $remote_control_password, $ftp_password);
 				
 				//Add IP:Port Pair to the Game Home

@@ -115,7 +115,7 @@ function exec_ogp_module()
 				elseif($status == "paid")
 				{
 					?>
-					 <form method="post" action="home.php?m=billing&p=create_servers">
+					 <form method="post" action="home.php?m=simple-billing&p=create_servers">
 					  <input type="hidden" name="cart_id" value="<?php echo $order['cart_id'];?>">
 					<?php
 					if($order['extended'] == "1")
@@ -146,7 +146,7 @@ function exec_ogp_module()
 				elseif($status == "paid_and_installed")
 				{
 					?>
-					 <form method="post" action="?m=billing&p=bill">
+					 <form method="post" action="?m=simple-billing&p=bill">
 					  <input type="hidden" name="cart_id" value="<?php echo $order['cart_id'];?>">
 					  <input name="paid" type="submit" value="<?php print_lang("see_invoice");?>">
 					 </form>

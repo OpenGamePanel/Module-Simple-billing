@@ -253,7 +253,7 @@ function exec_ogp_module()
 		}
         $db->setSettings($settings);
         print_success(get_lang('settings_updated'));
-        $view->refresh("?m=billing&p=shop_settings");
+        $view->refresh("?m=simple-billing&p=shop_settings");
         return;
     }
 	
@@ -261,7 +261,7 @@ function exec_ogp_module()
 	$p = isset($_SERVER['SERVER_PORT']) & $_SERVER['SERVER_PORT'] != "80" ? ":".$_SERVER['SERVER_PORT'] : NULL ;
 	$this_script = 'http'.$s.'://'.$_SERVER['SERVER_NAME'].$p.$_SERVER['SCRIPT_NAME'];
 	$current_folder_url = str_replace( curPageName(), "", $this_script);
-	$robokassa_Result_URL = $current_folder_url.'modules/billing/robokassa-ipn.php';
+	$robokassa_Result_URL = $current_folder_url.'modules/simple-billing/robokassa-ipn.php';
 	
     echo "<style>
 		  h4{
@@ -283,7 +283,7 @@ function exec_ogp_module()
     echo "<h2>".get_lang('shop_settings')."</h2>";
 	print_failure($_SESSION['err_str']);
     $ft = new FormTable();
-    $ft->start_form("?m=billing&p=shop_settings");
+    $ft->start_form("?m=simple-billing&p=shop_settings");
     $ft->start_table();
 	echo "<tr><td colspan='2' ><h4>".get_lang('payment_gateway')."</h4></td></tr>";
 	$ft->add_custom_field('paypal','<input type="checkbox" name="paypal" value="1" '.checked('paypal').'/>');

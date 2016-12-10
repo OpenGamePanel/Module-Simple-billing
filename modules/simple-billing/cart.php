@@ -66,19 +66,19 @@ function exec_ogp_module()
 		
 		if ( !empty( $cart_id ) and isset( $_POST["pay_paypal"] ) and $settings['paypal'] == "1" )
 		{
-			echo '<meta http-equiv="refresh" content="0;url=home.php?m=billing&p=paypal&cart_id='.$cart_id.'" >';
+			echo '<meta http-equiv="refresh" content="0;url=home.php?m=simple-billing&p=paypal&cart_id='.$cart_id.'" >';
 		}
 		elseif ( !empty( $cart_id ) and isset( $_POST["pay_paygol"] ) and $settings['paygol'] == "1" )
 		{
-			echo '<meta http-equiv="refresh" content="0;url=home.php?m=billing&p=paygol&cart_id='.$cart_id.'" >';
+			echo '<meta http-equiv="refresh" content="0;url=home.php?m=simple-billing&p=paygol&cart_id='.$cart_id.'" >';
 		}
 		elseif ( !empty( $cart_id ) and isset( $_POST["pay_skrill"] ) and $settings['skrill'] == "1" )
 		{
-			echo '<meta http-equiv="refresh" content="0;url=home.php?m=billing&p=skrill&cart_id='.$cart_id.'" >';
+			echo '<meta http-equiv="refresh" content="0;url=home.php?m=simple-billing&p=skrill&cart_id='.$cart_id.'" >';
 		}
 		elseif ( !empty( $cart_id ) and isset( $_POST["pay_robokassa"] ) and $settings['robokassa'] == "1" )
 		{
-			echo '<meta http-equiv="refresh" content="0;url=home.php?m=billing&p=robokassa&cart_id='.$cart_id.'" >';
+			echo '<meta http-equiv="refresh" content="0;url=home.php?m=simple-billing&p=robokassa&cart_id='.$cart_id.'" >';
 		}
 	}
 	
@@ -127,19 +127,19 @@ function exec_ogp_module()
 		
 		if ( !empty( $cart_id ) and isset( $_POST["extend_and_pay_paypal"] ) and $settings['paypal'] == "1" )
 		{
-			echo '<meta http-equiv="refresh" content="0;url=home.php?m=billing&p=paypal&cart_id='.$cart_id.'" >';
+			echo '<meta http-equiv="refresh" content="0;url=home.php?m=simple-billing&p=paypal&cart_id='.$cart_id.'" >';
 		}
 		elseif ( !empty( $cart_id ) and isset( $_POST["extend_and_pay_paygol"] ) and $settings['paygol'] == "1" )
 		{
-			echo '<meta http-equiv="refresh" content="0;url=home.php?m=billing&p=paygol&cart_id='.$cart_id.'" >';
+			echo '<meta http-equiv="refresh" content="0;url=home.php?m=simple-billing&p=paygol&cart_id='.$cart_id.'" >';
 		}
 		elseif ( !empty( $cart_id ) and isset( $_POST["extend_and_pay_skrill"] ) and $settings['skrill'] == "1" )
 		{
-			echo '<meta http-equiv="refresh" content="0;url=home.php?m=billing&p=skrill&cart_id='.$cart_id.'" >';
+			echo '<meta http-equiv="refresh" content="0;url=home.php?m=simple-billing&p=skrill&cart_id='.$cart_id.'" >';
 		}
 		elseif ( !empty( $cart_id ) and isset( $_POST["extend_and_pay_robokassa"] ) and $settings['robokassa'] == "1" )
 		{
-			echo '<meta http-equiv="refresh" content="0;url=home.php?m=billing&p=robokassa&cart_id='.$cart_id.'" >';
+			echo '<meta http-equiv="refresh" content="0;url=home.php?m=simple-billing&p=robokassa&cart_id='.$cart_id.'" >';
 		}
 	}
 	
@@ -202,7 +202,7 @@ function exec_ogp_module()
 	{
 		print_failure( get_lang('there_are_no_orders_in_cart') );
 		?>		
-		<a href="?m=billing&p=shop"><?php print_lang('back'); ?></a>
+		<a href="?m=simple-billing&p=shop"><?php print_lang('back'); ?></a>
 		<?php
 		return;
 	}
@@ -367,7 +367,7 @@ function exec_ogp_module()
 			  if($order['paid'] == 1)
 			  {
 			  ?>
-			 <form method="post" action="home.php?m=billing&p=create_servers">
+			 <form method="post" action="home.php?m=simple-billing&p=create_servers">
 			  <input type="hidden" name="cart_id" value="<?php echo $order['cart_id'];?>">
 			  <?php
 			 if($order['extended'] == "1")
@@ -393,7 +393,7 @@ function exec_ogp_module()
 			  elseif($order['paid'] == 3)
 			  {
 			  ?>
-			 <form method="post" action="?m=billing&p=bill">
+			 <form method="post" action="?m=simple-billing&p=bill">
 			  <input type="hidden" name="cart_id" value="<?php echo $order['cart_id'];?>">
 			  <input name="paid" type="submit" value="<?php print_lang("see_invoice");?>">
 			 </form>
@@ -428,7 +428,7 @@ function exec_ogp_module()
 		}
 	}
 	?>		
-	<a href="?m=billing&p=shop"><?php print_lang('back'); ?></a>
+	<a href="?m=simple-billing&p=shop"><?php print_lang('back'); ?></a>
 	<?php
 }
 ?>

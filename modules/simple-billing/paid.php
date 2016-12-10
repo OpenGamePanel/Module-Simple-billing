@@ -13,6 +13,6 @@ function exec_ogp_module()
 	{
 		echo "<html><head><title>Reversed OR Refunded</title></head><body><h4>Reversed OR Refunded</h4>";
 	}
-	echo "<meta HTTP-EQUIV='REFRESH' content='2; url=?m=billing&p=cart'>";
+	echo "<meta HTTP-EQUIV='REFRESH' content='2; url=?m=simple-billing&p=cart'>";
 }
 ?>

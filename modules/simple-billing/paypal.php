@@ -32,7 +32,7 @@ function exec_ogp_module()
 				$db->query("UPDATE " . $table_prefix . "billing_carts
 												SET paid=1
 												WHERE cart_id=".$cart_id);
-				$view->refresh("home.php?m=billing&p=cart",0);
+				$view->refresh("home.php?m=simple-billing&p=cart",0);
 			}
 			else
 			{
@@ -59,9 +59,9 @@ function exec_ogp_module()
 				
 				$p->add_field('business', $receiver_email);
 				$p->add_field('currency_code', $settings['currency']);
-				$p->add_field('return', $this_script.'?m=billing&p=paid');
-				$p->add_field('cancel_return', $this_script.'?m=billing&p=cart');
-				$p->add_field('notify_url', $current_folder_url.'modules/billing/paid-ipn.php');
+				$p->add_field('return', $this_script.'?m=simple-billing&p=paid');
+				$p->add_field('cancel_return', $this_script.'?m=simple-billing&p=cart');
+				$p->add_field('notify_url', $current_folder_url.'modules/simple-billing/paid-ipn.php');
 				$p->add_field('item_name', $cart['name']);
 				$p->add_field('item_number', $cart_id);
 				$p->add_field('amount', number_format( $total , 2 ));

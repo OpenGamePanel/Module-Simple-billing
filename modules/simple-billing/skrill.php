@@ -35,7 +35,7 @@ function exec_ogp_module()
 				$db->query("UPDATE " . $table_prefix . "billing_carts
 												SET paid=1
 												WHERE cart_id=".$cart_id);
-				$view->refresh("home.php?m=billing&p=cart",0);
+				$view->refresh("home.php?m=simple-billing&p=cart",0);
 			}
 			else
 			{
@@ -61,8 +61,8 @@ function exec_ogp_module()
 				}
 								
 				$url = "https://www.moneybookers.com/app/payment.pl";
-				$ipn_url = $current_folder_url.'modules/billing/skrill-ipn.php';
-				$return_url = $current_folder_url.'home.php?m=billing&p=cart';
+				$ipn_url = $current_folder_url.'modules/simple-billing/skrill-ipn.php';
+				$return_url = $current_folder_url.'home.php?m=simple-billing&p=cart';
 				$amount = number_format( $total , 2 );
 				
 				$fields = array(

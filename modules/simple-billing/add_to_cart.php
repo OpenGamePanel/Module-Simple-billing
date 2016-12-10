@@ -102,7 +102,7 @@ function exec_ogp_module()
 									   "tax_amount" => $tax_amount,
 									   "currency" => $currency,
 									   "paid" => 0);
-		echo '<meta http-equiv="refresh" content="0;url=?m=billing&amp;p=cart">';
+		echo '<meta http-equiv="refresh" content="0;url=?m=simple-billing&amp;p=cart">';
 	}
 }
 ?>

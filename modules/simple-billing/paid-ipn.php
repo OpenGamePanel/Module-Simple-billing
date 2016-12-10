@@ -61,7 +61,7 @@ $to = $ipn['receiver_email'] . ', ' . $ipn['payer_email'];
 
 $body = "<b>PayPal Payment For <a href='".
 		$current_folder_url.
-		"../../index.php?m=billing&p=shop_guest' >".
+		"../../index.php?m=simple-billing&p=shop_guest' >".
 		$panel_name."</a></b><br><br>".
 		"<h2>Order</h2>".
 		"- Item: ".$ipn['item_name']."<br>".
@@ -139,7 +139,7 @@ if ($verified AND isset( $ipn['payment_status'] ) )
 			$subject = "Error: Incorrect payment amount";
 			$body = "<b>PayPal Payment For <a href='".
 					$current_folder_url.
-					"../../index.php?m=billing&p=shop_guest' >".
+					"../../index.php?m=simple-billing&p=shop_guest' >".
 					$panel_name."</a></b><br><br>".
 					"<h2>Order</h2>".
 					"- Item: ".$ipn['item_name']."<br>".

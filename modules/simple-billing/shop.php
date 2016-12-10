@@ -41,7 +41,7 @@ function exec_ogp_module()
 	<table class="center">
 	<tr>
 	<td>
-	<a href="?m=billing&p=cart"><img SRC="images/cart.png" BORDER="0" WIDTH=22 HEIGHT=20/><?php print_lang('your_cart');?></a>
+	<a href="?m=simple-billing&p=cart"><img SRC="images/cart.png" BORDER="0" WIDTH=22 HEIGHT=20/><?php print_lang('your_cart');?></a>
 	</td>
 	</tr>
 	<tr>
@@ -149,7 +149,7 @@ function exec_ogp_module()
 			?>
 			</div>
 			<table style="width:420px;float:left;">
-			<form method="post" action="?m=billing&p=add_to_cart<?php if(isset($_POST['service_id'])) echo "&service_id=".$_POST['service_id'];?>">
+			<form method="post" action="?m=simple-billing&p=add_to_cart<?php if(isset($_POST['service_id'])) echo "&service_id=".$_POST['service_id'];?>">
 			<tr>
 			<td align="right"><?php print_lang('service_name');?> ::</td>
 			<td align="left">
@@ -235,7 +235,7 @@ function exec_ogp_module()
 			</tr>
 			<tr>
 			<td align="left" colspan="2">
-			<form action ="?m=billing&p=shop" method="POST">
+			<form action ="?m=simple-billing&p=shop" method="POST">
 			  <button><< <?php print_lang('back_to_list');?></button>
 			</form>
 			</td>

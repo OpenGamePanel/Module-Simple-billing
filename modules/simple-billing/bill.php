@@ -127,11 +127,11 @@ function exec_ogp_module()
 			  </tr>
 			</table>
 			<br><br>
-			<form method='post' action='?m=billing&p=bill&type=cleared' >
+			<form method='post' action='?m=simple-billing&p=bill&type=cleared' >
 			<input type="hidden" name="cart_id" value="<?php echo $_POST['cart_id'];?>">
 			<input type="submit" value="<?php print_lang('print_invoice') ?>" />
 			</form>
-			<form method='post' action='?m=billing&p=<?php 
+			<form method='post' action='?m=simple-billing&p=<?php 
 			$isAdmin = $db->isAdmin($_SESSION['user_id']);
 			if ($isAdmin)
 			{

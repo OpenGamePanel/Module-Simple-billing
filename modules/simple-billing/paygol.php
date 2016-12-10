@@ -37,7 +37,7 @@ function exec_ogp_module()
 				$db->query("UPDATE " . $table_prefix . "billing_carts
 												SET paid=1
 												WHERE cart_id=".$cart_id);
-				$view->refresh("home.php?m=billing&p=cart",0);
+				$view->refresh("home.php?m=simple-billing&p=cart",0);
 			}
 			else
 			{
@@ -53,9 +53,9 @@ function exec_ogp_module()
 					 ' <input type="hidden" name="pg_name" value=\''.$cart['name'].'\'>'."\n".
 					 ' <input type="hidden" name="pg_custom" value="'.$cart_id.'">'."\n".
 					 ' <input type="hidden" name="pg_price" value="'.number_format( $total , 2 ).'">'."\n".
-					 ' <input type="hidden" name="pg_return_url" value="'.urlencode($this_script.'?m=billing&p=cart').'">'."\n".
-					 ' <input type="hidden" name="pg_cancel_url" value="'.$this_script.'?m=billing&p=cart">'."\n".
-					 ' <input type="hidden" name="pg_notify_url" value="'.$current_folder_url.'modules/billing/paygol-ipn.php">'."\n".
+					 ' <input type="hidden" name="pg_return_url" value="'.urlencode($this_script.'?m=simple-billing&p=cart').'">'."\n".
+					 ' <input type="hidden" name="pg_cancel_url" value="'.$this_script.'?m=simple-billing&p=cart">'."\n".
+					 ' <input type="hidden" name="pg_notify_url" value="'.$current_folder_url.'modules/simple-billing/paygol-ipn.php">'."\n".
 					 ' <input type="image" name="pg_button" class="paygol" src="http://www.paygol.com/micropayment/img/buttons/150/black_en_pbm.png"'.
 					 ' border="0" onClick="pg_reDirect(this.form)">'."\n".
 					 '</form>';

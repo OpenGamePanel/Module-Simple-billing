@@ -35,7 +35,7 @@ function exec_ogp_module()
 				$db->query("UPDATE " . $table_prefix . "billing_carts
 												SET paid=1
 												WHERE cart_id=".$cart_id);
-				$view->refresh("home.php?m=billing&p=cart",0);
+				$view->refresh("home.php?m=simple-billing&p=cart",0);
 			}
 			else
 			{
