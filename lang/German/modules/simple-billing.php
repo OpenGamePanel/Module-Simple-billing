@@ -23,11 +23,11 @@
  */
 
 define('currency', "Currency");
-define('available_invoice_types', "Available Invoice Types");
-define('hourly', "Hourly");
-define('monthly', "Monthly");
-define('annually', "Annually");
-define('tax_amount', "Tax Amount");
+define('available_invoice_types', "Verfügbare Rechnungsarten");
+define('hourly', "Pro Stunde");
+define('monthly', "Monatlich");
+define('annually', "Jährlich");
+define('tax_amount', "Steuerbetrag");
 define('paypal_email', "PayPal E-mail");
 define('update_settings', "Update Settings");
 define('settings_updated', "Settings Updated.");
