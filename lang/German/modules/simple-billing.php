@@ -22,7 +22,7 @@
  *
  */
 
-define('currency', "Currency");
+define('currency', "Währung");
 define('available_invoice_types', "Verfügbare Rechnungsarten");
 define('hourly', "Pro Stunde");
 define('monthly', "Monatlich");
@@ -38,15 +38,15 @@ define('paypal', "PayPal");
 define('paygol', "PayGol");
 define('skrill', "Skrill");
 define('skrill_merchant_info', "Skrill merchant information");
-define('skrill_merchant_id', "Merchant ID.");
+define('skrill_merchant_id', "Händler ID.");
 define('skrill_email', "Skrill Email");
-define('skrill_secret_word', "Secret word");
+define('skrill_secret_word', "Geheimwort");
 define('skrill_secret_word_info', "The password must be set from your Skrill merchant account,<br>at <b>Settings</b> click on <b>Developer Settings</b>.<br>If this option is not listed send an email to <i>merchantservices@skrill.com</i>.");
 define('hash_stored_correctly', "Hash stored correctly");
 define('currency_not_available_at', "The currency \"%s\" is not available at %s.");
 define('robokassa', "Robokassa");
 define('robokassa_service', "Robokassa service");
-define('robokassa_merchant_login', "Merchant Login");
+define('robokassa_merchant_login', "Händler Login");
 define('robokassa_securepass1', "Secure Password 1");
 define('robokassa_securepass2', "Secure Password 2");
 define('your_cart', "Your Cart");
