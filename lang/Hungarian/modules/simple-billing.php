@@ -100,7 +100,7 @@ define('create_server', "Szerver létrehozása");
 define('see_invoice', "Számla megtekintése");
 define('paid', "Fizetett");
 define('not_paid', "Nem fizetett");
-define('procesing_payment', "Processing Payment");
+define('procesing_payment', "Fizetés feldolgozása");
 define('paid_and_installed', "Fizetve és telepítve");
 define('add_to_cart', "Hozzáadás a kosárhoz");
 define('cart_id', "Cart ID");

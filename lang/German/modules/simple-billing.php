@@ -100,7 +100,7 @@ define('create_server', "Create Server");
 define('see_invoice', "Siehe Rechnung");
 define('paid', "Bezahlt");
 define('not_paid', "Nicht Bezahlt");
-define('procesing_payment', "Processing Payment");
+define('procesing_payment', "Zahlung bearbeiten");
 define('paid_and_installed', "Bezahlt und installiert");
 define('add_to_cart', "Add To Cart");
 define('cart_id', "Warenkorb-ID");
