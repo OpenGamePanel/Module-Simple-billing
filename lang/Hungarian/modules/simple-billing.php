@@ -76,7 +76,7 @@ define('you_need_to', "You need to");
 define('register', "Regisztráció");
 define('and', "és");
 define('log_in', "Log In");
-define('to_purchase_a_service', "to purchase a service");
+define('to_purchase_a_service', "a szolgáltatás megvásárlásához");
 define('available_services', "Elérhető szolgáltatások");
 define('payment_is_pending_of_approval', "The payment is pending of approval.");
 define('back_to_your_cart', "Menj vissza a kosaradhoz.");
