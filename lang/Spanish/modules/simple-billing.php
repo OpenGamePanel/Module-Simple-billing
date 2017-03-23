@@ -62,7 +62,7 @@ define('service_name', "Nombre del servicio");
 define('rcon_pass', "Contraseña RCON");
 define('ftp_pass', "Contraseña FTP");
 define('available_ips', "IP disponibles");
-define('max_players', "Max Players");
+define('max_players', "Jugadores máximos");
 define('invoice_duration', "Duración");
 define('calculate_price', "Calcular Precio");
 define('buy', "Comprar");
