@@ -78,9 +78,13 @@ function exec_ogp_module()
 	$tax_amount = $settings['tax_amount'];
 	$currency = $settings['currency'];
 	
-	if($max_players < 10 || $qty < 1){
-		$max_players = 12;
+	$qry_services = "SELECT * FROM OGP_DB_PREFIXbilling_services".$where_service_id;
+	$services = $db->resultQuery($qry_services);			
+	foreach ($services as $key => $row) {	
+	if($max_players < $row['slot_min_qty'] || $qty < 1){
+		$max_players = $row['slot_min_qty'];
 		$qty = 1;
+		}
 	}
 	
 	$price = $max_players*$price_slot*$qty;
