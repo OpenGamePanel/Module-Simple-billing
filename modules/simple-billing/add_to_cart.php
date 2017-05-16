@@ -60,8 +60,11 @@ function exec_ogp_module()
 	{
 		$price_slot=$row_service['price_year']*12;
 	}
+	else
+	{
+		$price_slot=$row_service['price_monthly'];
+	}
 	
-	$price = $_POST['max_players']*$price_slot*$_POST['qty'];
 	
 	//Game Server Values
 	$ip_id = $_POST['ip_id'];
@@ -74,6 +77,13 @@ function exec_ogp_module()
 	$ftp_password = $_POST['ftp_password'];
 	$tax_amount = $settings['tax_amount'];
 	$currency = $settings['currency'];
+	
+	if($max_players < 10 || $qty < 1){
+		$max_players = 12;
+		$qty = 1;
+	}
+	
+	$price = $max_players*$price_slot*$qty;
 	
 	global $view;
 		
