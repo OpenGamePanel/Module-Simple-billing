@@ -78,6 +78,7 @@ function exec_ogp_module()
 	$tax_amount = $settings['tax_amount'];
 	$currency = $settings['currency'];
 	
+	if(isset($_REQUEST['service_id'])) $where_service_id = " WHERE service_id=".$_REQUEST['service_id']; else $where_service_id = "";
 	$qry_services = "SELECT * FROM OGP_DB_PREFIXbilling_services".$where_service_id;
 	$services = $db->resultQuery($qry_services);			
 	foreach ($services as $key => $row) {	
