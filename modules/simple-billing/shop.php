@@ -64,7 +64,12 @@ function exec_ogp_module()
 	if(intval($_REQUEST['service_id']) !==0) $where_service_id = " WHERE service_id=".intval($_REQUEST['service_id']); else $where_service_id = "";
 	$qry_services = "SELECT * FROM OGP_DB_PREFIXbilling_services".$where_service_id;
 	$services = $db->resultQuery($qry_services);
-					
+	
+	if (isset($_REQUEST['service_id']) && $services === false) {
+		$view->refresh('home.php?m=simple-billing&p=shop');
+		return;
+	}
+	
 	foreach ($services as $key => $row) {
 		$service_id[$key] = $row['service_id'];
 		$home_cfg_id[$key] = $row['home_cfg_id'];
