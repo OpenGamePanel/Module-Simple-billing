@@ -24,29 +24,31 @@
 
 function exec_ogp_module()
 {
-	global $db;
+	global $db ,$view;
 	$settings = $db->getSettings();
 	
 	//This must be add to re-connection with database.
 	require('includes/config.inc.php');
-	
-	/*
-	The service id should also be cast to an int, 
-	or checked if it's numeric before used in the WHERE clause... otherwise an SQL error is possible currently.
-	If it's not an int (or if it's 0 after casting) redirect to the shop page.
-	*/	
+
+
+	//The service id should also be cast to an int.
 	$service_id = intval($_REQUEST['service_id']);
-	if ($service_id <= 0){
-		$view->refresh("home.php?m=simple-billing&p=buy");
-		return;
-	}
-	
+
 	// Query for Selected service info.
 	$qry_service = "SELECT DISTINCT service_id, home_cfg_id, mod_cfg_id, service_name, remote_server_id, slot_max_qty, slot_min_qty, price_hourly, price_monthly, price_year, description, img_url FROM ".$table_prefix."billing_services WHERE service_id=".$service_id;
 	$result_service = $db->resultQuery($qry_service);		
 	$row_service = $result_service[0];
 	//Compiling info about invoice to create an invoice order.
 
+	/*	
+	Check if it's numeric before used in the WHERE clause... otherwise an SQL error is possible currently.
+	If it's not an int (or if it's 0 after casting and or not vaild service) redirect to the shop page.
+	*/		
+	if ($service_id <= 0 || $result_service === false){
+		$view->refresh("home.php?m=simple-billing&p=shop");
+		return;
+	}	
+	
 	// remote server value
 	$remote_server_id = $row_service['remote_server_id'];
 
@@ -92,7 +94,7 @@ function exec_ogp_module()
 	Cast $_REQUEST['service_id'] to an int and then check if its value is higher than 0 before using it in the WHERE clause.
 	Checking if it's higher than 0 because if it's a non-numeric value, after casting it to an int it'll be 0.
 	*/	
-	if(isset($service_id)) $where_service_id = " WHERE service_id=".$service_id; else $where_service_id = "";
+	if($service_id !== 0) $where_service_id = " WHERE service_id=".$service_id; else $where_service_id = "";
 	$qry_services = "SELECT * FROM OGP_DB_PREFIXbilling_services".$where_service_id;
 	$services = $db->resultQuery($qry_services);			
 	foreach ($services as $key => $row) {	
@@ -111,8 +113,6 @@ function exec_ogp_module()
 	}
 	
 	$price = $max_players*$price_slot*$qty;
-	
-	global $view;
 		
 	if( isset( $_POST["add_to_cart"] ) )
 	{
