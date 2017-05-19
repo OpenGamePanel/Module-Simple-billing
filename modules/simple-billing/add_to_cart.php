@@ -26,16 +26,12 @@ function exec_ogp_module()
 {
 	global $db ,$view;
 	$settings = $db->getSettings();
-	
-	//This must be add to re-connection with database.
-	require('includes/config.inc.php');
-
 
 	//The service id should also be cast to an int.
 	$service_id = intval($_REQUEST['service_id']);
 
 	// Query for Selected service info.
-	$qry_service = "SELECT DISTINCT service_id, home_cfg_id, mod_cfg_id, service_name, remote_server_id, slot_max_qty, slot_min_qty, price_hourly, price_monthly, price_year, description, img_url FROM ".$table_prefix."billing_services WHERE service_id=".$service_id;
+	$qry_service = "SELECT DISTINCT service_id, home_cfg_id, mod_cfg_id, service_name, remote_server_id, slot_max_qty, slot_min_qty, price_hourly, price_monthly, price_year, description, img_url FROM OGP_DB_PREFIXbilling_services WHERE service_id=".$service_id;
 	$result_service = $db->resultQuery($qry_service);		
 	$row_service = $result_service[0];
 	//Compiling info about invoice to create an invoice order.
