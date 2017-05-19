@@ -23,7 +23,7 @@
  */
 function exec_ogp_module()
 {	
-	global $db;
+	global $db, $view;
 
 	$settings = $db->getSettings();
 		
@@ -61,7 +61,7 @@ function exec_ogp_module()
 	</table>
 	<?php 
 	// Shop Form
-	if(isset($_REQUEST['service_id'])) $where_service_id = " WHERE service_id=".$_REQUEST['service_id']; else $where_service_id = "";
+	if(intval($_REQUEST['service_id']) !==0) $where_service_id = " WHERE service_id=".intval($_REQUEST['service_id']); else $where_service_id = "";
 	$qry_services = "SELECT * FROM OGP_DB_PREFIXbilling_services".$where_service_id;
 	$services = $db->resultQuery($qry_services);
 					
