@@ -28,7 +28,7 @@ define('hourly', "Hourly");
 define('monthly', "Monthly");
 define('annually', "Annually");
 define('tax_amount', "Tax Amount");
-define('paypal_email', "PayPal Email");
+define('paypal_email', "PayPal E-mail");
 define('update_settings', "Update Settings");
 define('settings_updated', "Settings Updated.");
 define('payment_gateway', "Payment Gateway");
