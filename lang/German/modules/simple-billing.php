@@ -28,7 +28,7 @@ define('hourly', "Pro Stunde");
 define('monthly', "Monatlich");
 define('annually', "Jährlich");
 define('tax_amount', "Steuerbetrag");
-define('paypal_email', "PayPal E-mail");
+define('paypal_email', "PayPal Email");
 define('update_settings', "Update Settings");
 define('settings_updated', "Einstellungen aktualisiert.");
 define('payment_gateway', "Zahlungs-Gateway");
@@ -38,7 +38,7 @@ define('paypal', "PayPal");
 define('paygol', "PayGol");
 define('skrill', "Skrill");
 define('skrill_merchant_info', "Skrill Händlerinformationen");
-define('skrill_merchant_id', "Händler ID.");
+define('skrill_merchant_id', "Merchant ID");
 define('skrill_email', "Skrill Email
 ");
 define('skrill_secret_word', "Geheimwort");

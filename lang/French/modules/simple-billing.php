@@ -38,7 +38,7 @@ define('paypal', "PayPal");
 define('paygol', "PayGol");
 define('skrill', "Skrill");
 define('skrill_merchant_info', "Information Marchand Skrill");
-define('skrill_merchant_id', "ID Marchand.");
+define('skrill_merchant_id', "ID Marchand");
 define('skrill_email', "E-mail Skrill");
 define('skrill_secret_word', "Mot secret");
 define('skrill_secret_word_info', "Le mot de passe doit être défini à partir de votre compte marchand Skrill,<br>à <b>Paramètres</b>, cliquez sur <b>Paramètres Développeur</b>,<br>Si cette option n'est pas listée, veuillez contacter par e-mail <i>merchantservices@skrill.com</i>.");
