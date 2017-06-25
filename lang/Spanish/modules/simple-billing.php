@@ -2,7 +2,7 @@
 /*
  *
  * OGP - Open Game Panel
- * Copyright (C) 2008 - 2016 The OGP Development Team
+ * Copyright (C) 2008 - 2017 The OGP Development Team
  *
  * http://www.opengamepanel.org/
  *
@@ -28,7 +28,7 @@ define('hourly', "Por horas");
 define('monthly', "Mensual");
 define('annually', "Anual");
 define('tax_amount', "Cantidad de IVA");
-define('paypal_email', "PayPal Email");
+define('paypal_email', "PayPal E-mail");
 define('update_settings', "Actualizar configuración");
 define('settings_updated', "Configuración actualizada.");
 define('payment_gateway', "Pasarela de pago");
