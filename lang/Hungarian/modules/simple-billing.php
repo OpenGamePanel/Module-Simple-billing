@@ -89,7 +89,7 @@ define('removal_date', "Eltávolítási dátum");
 define('installation_date', "Telepítési dátum");
 define('enable_server', "Szerver engedélyezve");
 define('success', "SIKERES");
-define('redirecting_to_game_monitor', "Átirányítás a Szerver felügyeletbe...");
+define('redirecting_to_game_monitor', "Átirányítás a Játékfigyelőbe...");
 define('starting_installations', "A telepítés elkezdése...");
 define('order_id', "Rendelés ID");
 define('home_name', "Home név");
