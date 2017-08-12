@@ -90,7 +90,7 @@ define('installation_date', "Installation date");
 define('enable_server', "Enable server");
 define('success', "SUCCESS");
 define('redirecting_to_game_monitor', "Redirecting to Game Monitor...");
-define('starting_installations', "Starting installations...");
+define('starting_installations', "Starting the installation...");
 define('order_id', "Order ID");
 define('home_name', "Home Name");
 define('tax', "Tax");
