@@ -121,12 +121,12 @@ function exec_ogp_module()
 			<input name="home_cfg_id" type="hidden" value="<?php echo $_POST['homecfgid'];?>"/>
 		</tr>
 		<tr>
-			<td><?php print_lang('max_slot_qty');?></td>
-			<td><input name="slot_max_qty" type="text" size="8" value="32"/></td>
-		</tr>
-		<tr>
 			<td><?php print_lang('min_slot_qty');?></td>
 			<td><input name="slot_min_qty" type="text" size="8" value="10"/></td>
+		</tr>
+		<tr>
+			<td><?php print_lang('max_slot_qty');?></td>
+			<td><input name="slot_max_qty" type="text" size="8" value="32"/></td>
 		</tr>
 		<tr>
 			<td><?php print_lang('price_hourly');?></td>
