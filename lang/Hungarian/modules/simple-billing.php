@@ -92,7 +92,7 @@ define('success', "SIKERES");
 define('redirecting_to_game_monitor', "Átirányítás a Játékfigyelőbe...");
 define('starting_installations', "A telepítés indítása...");
 define('order_id', "Rendelés ID");
-define('home_name', "Home név");
+define('home_name', "Szerver név");
 define('tax', "Adó");
 define('pay_from', "Fizetés erről %s");
 define('set_as_paid', "Megjelölés fizetettnek");
