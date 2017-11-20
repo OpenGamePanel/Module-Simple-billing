@@ -29,7 +29,7 @@ define('monthly', "Monatlich");
 define('annually', "Jährlich");
 define('tax_amount', "Steuerbetrag");
 define('paypal_email', "PayPal E-mail");
-define('update_settings', "Update Settings");
+define('update_settings', "Einstellungen aktualisieren");
 define('settings_updated', "Einstellungen aktualisiert.");
 define('payment_gateway', "Zahlungs-Gateway");
 define('paygol_service', "PayGol Dienst ");
