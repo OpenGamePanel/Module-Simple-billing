@@ -6,11 +6,11 @@ function exec_ogp_module()
 	//Querying UPDATE a service FROM DB
 	if (isset($_POST['service']) AND isset($_POST['new_url']))
 	{
-		$new_price_hourly = $_POST['new_price_hourly'];
-		$new_price_monthly = $_POST['new_price_monthly'];
-		$new_price_year = $_POST['new_price_year'];
-		$new_url = $_POST['new_url'];
-		$service = $_POST['service'];
+		$new_price_hourly = $db->realEscapeSingle($_POST['new_price_hourly']);
+		$new_price_monthly = $db->realEscapeSingle($_POST['new_price_monthly']);
+		$new_price_year = $db->realEscapeSingle($_POST['new_price_year']);
+		$new_url = $db->realEscapeSingle($_POST['new_url']);
+		$service = $db->realEscapeSingle($_POST['service']);
 
 		//Create INSERT query
 		$qry_change_url = "UPDATE OGP_DB_PREFIXbilling_services
@@ -26,27 +26,27 @@ function exec_ogp_module()
 	if(isset($_POST['mod_cfg_id']) AND isset($_POST['remote_server_id']) AND isset($_POST['slot_max_qty']) AND isset($_POST['price_hourly']) AND isset($_POST['price_monthly']) AND isset($_POST['price_year']))
 	{
 		//Sanitize the POST values
-		$home_cfg_id = $_POST['home_cfg_id'];
-		$mod_cfg_id = $_POST['mod_cfg_id'];
-		$service_name = $_POST['service_name'];
-		$remote_server_id = $_POST['remote_server_id'];
-		$slot_max_qty = $_POST['slot_max_qty'];
-		$slot_min_qty = $_POST['slot_min_qty'];
-		$price_hourly = $_POST['price_hourly'];
-		$price_monthly = $_POST['price_monthly'];
-		$price_year = $_POST['price_year'];
-		$description = $_POST['description'];
-		$img_url = $_POST['img_url'];
-		$ftp = $_POST['ftp'];
-		$install_method = $_POST['install_method'];
-		$manual_url = $_POST['manual_url'];
+		$home_cfg_id = $db->realEscapeSingle($_POST['home_cfg_id']);
+		$mod_cfg_id = $db->realEscapeSingle($_POST['mod_cfg_id']);
+		$service_name = $db->realEscapeSingle($_POST['service_name']);
+		$remote_server_id = $db->realEscapeSingle($_POST['remote_server_id']);
+		$slot_max_qty = $db->realEscapeSingle($_POST['slot_max_qty']);
+		$slot_min_qty = $db->realEscapeSingle($_POST['slot_min_qty']);
+		$price_hourly = $db->realEscapeSingle($_POST['price_hourly']);
+		$price_monthly = $db->realEscapeSingle($_POST['price_monthly']);
+		$price_year = $db->realEscapeSingle($_POST['price_year']);
+		$description = $db->realEscapeSingle($_POST['description']);
+		$img_url = $db->realEscapeSingle($_POST['img_url']);
+		$ftp = $db->realEscapeSingle($_POST['ftp']);
+		$install_method = $db->realEscapeSingle($_POST['install_method']);
+		$manual_url = $db->realEscapeSingle($_POST['manual_url']);
 		$access_rights = "";
-		if(isset($_POST['allow_updates']))$access_rights .= $_POST['allow_updates'];
-		if(isset($_POST['allow_file_management']))$access_rights .= $_POST['allow_file_management'];
-		if(isset($_POST['allow_parameter_usage']))$access_rights .= $_POST['allow_parameter_usage'];
-		if(isset($_POST['allow_extra_params']))$access_rights .= $_POST['allow_extra_params'];
-		if(isset($_POST['allow_ftp_usage']))$access_rights .= $_POST['allow_ftp_usage'];
-		if(isset($_POST['allow_custom_fields']))$access_rights .= $_POST['allow_custom_fields'];
+		if(isset($_POST['allow_updates']))$access_rights .= $db->realEscapeSingle($_POST['allow_updates']);
+		if(isset($_POST['allow_file_management']))$access_rights .= $db->realEscapeSingle($_POST['allow_file_management']);
+		if(isset($_POST['allow_parameter_usage']))$access_rights .= $db->realEscapeSingle($_POST['allow_parameter_usage']);
+		if(isset($_POST['allow_extra_params']))$access_rights .= $db->realEscapeSingle($_POST['allow_extra_params']);
+		if(isset($_POST['allow_ftp_usage']))$access_rights .= $db->realEscapeSingle($_POST['allow_ftp_usage']);
+		if(isset($_POST['allow_custom_fields']))$access_rights .= $db->realEscapeSingle($_POST['allow_custom_fields']);
 		
 		$qry_add_service = "INSERT INTO OGP_DB_PREFIXbilling_services(service_id, home_cfg_id, mod_cfg_id, service_name, remote_server_id, slot_max_qty , slot_min_qty, price_hourly, price_monthly, price_year, description, img_url, ftp, install_method, manual_url, access_rights) VALUES(NULL, '".$home_cfg_id."', '".$mod_cfg_id."', '".$service_name."', '".$remote_server_id."', '".$slot_max_qty."', '".$slot_min_qty."', '".$price_hourly."', '".$price_monthly."', '".$price_year."', '".$description."', '".$img_url."', '".$ftp."', '".$install_method."', '".$manual_url."', '".$access_rights."')";
 		$db->query($qry_add_service);	
@@ -55,7 +55,7 @@ function exec_ogp_module()
 	//Querying REMOVE service FROM DB
 	if (isset($_POST['service_id']))
 	{
-		$db->query( "DELETE FROM OGP_DB_PREFIXbilling_services WHERE service_id=" . $_POST['service_id'] );
+		$db->query( "DELETE FROM OGP_DB_PREFIXbilling_services WHERE service_id=" . $db->realEscapeSingle($_POST['service_id']) );
 	}
 	
 	?>
@@ -71,7 +71,7 @@ function exec_ogp_module()
 		<td>
 		<select name="modcfgid">
 		<?php
-		$mod_qry = $db->resultQuery("SELECT DISTINCT mod_cfg_id, mod_name, game_name FROM OGP_DB_PREFIXconfig_mods NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE home_cfg_id=" . $_POST['home_cfg_id']);
+		$mod_qry = $db->resultQuery("SELECT DISTINCT mod_cfg_id, mod_name, game_name FROM OGP_DB_PREFIXconfig_mods NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE home_cfg_id=" . $db->realEscapeSingle($_POST['home_cfg_id']));
 		foreach($mod_qry as $array_mods) 
 		{ 
 			if($array_mods['mod_name'] == "none")$array_mods['mod_name']=$array_mods['game_name'];
@@ -111,7 +111,7 @@ function exec_ogp_module()
 		</tr>
 		<tr>
 		<?php
-		$mods = $db->resultQuery("SELECT DISTINCT mod_cfg_id, mod_name, game_name FROM OGP_DB_PREFIXconfig_mods NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE mod_cfg_id=" . $_POST['modcfgid']);
+		$mods = $db->resultQuery("SELECT DISTINCT mod_cfg_id, mod_name, game_name FROM OGP_DB_PREFIXconfig_mods NATURAL JOIN OGP_DB_PREFIXconfig_homes WHERE mod_cfg_id=" . $db->realEscapeSingle($_POST['modcfgid']));
 		foreach($mods as $mod) 
 		{ 
 		?>

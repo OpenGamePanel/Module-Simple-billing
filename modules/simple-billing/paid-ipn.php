@@ -110,7 +110,7 @@ if ($verified AND isset( $ipn['payment_status'] ) )
 									 OGP_DB_PREFIXbilling_orders AS orders  
 									 ON 
 									 orders.cart_id=cart.cart_id
-									 WHERE cart.cart_id=".$ipn['item_number']);
+									 WHERE cart.cart_id=".$db->realEscapeSingle($ipn['item_number']));
 	if( $ipn['payment_status']=="Completed" OR $ipn['payment_status']=="Canceled_Reversal" )
 	{  
 		$cart_id = $ipn['item_number'];
@@ -121,7 +121,7 @@ if ($verified AND isset( $ipn['payment_status'] ) )
 											 OGP_DB_PREFIXbilling_orders AS orders  
 											 ON 
 											 orders.cart_id=cart.cart_id
-											 WHERE cart.cart_id=".$cart_id);
+											 WHERE cart.cart_id=".$db->realEscapeSingle($cart_id));
 											 
 		$cart_price = number_format( $cart_price_info[0]['price'] + (($cart_price_info[0]['price']/100)*$cart_price_info[0]['tax_amount']) , 2 );
 		$paid_price = $ipn['mc_gross'];
@@ -183,7 +183,7 @@ if ($verified AND isset( $ipn['payment_status'] ) )
 		}
 		$query = "UPDATE OGP_DB_PREFIXbilling_carts
 				  SET paid=1
-				  WHERE cart_id=".$ipn['item_number'];
+				  WHERE cart_id=".$db->realEscapeSingle($ipn['item_number']);
 				  
 		foreach($user_homes as $user_home)
 		{			
@@ -222,30 +222,30 @@ if ($verified AND isset( $ipn['payment_status'] ) )
 			
 					//Set the expiration date to the new order
 					$db->query("UPDATE OGP_DB_PREFIXbilling_orders
-								SET end_date='$end_date'
-								WHERE order_id=".$user_home['order_id']);
+								SET end_date='" . $db->realEscapeSingle($end_date) . "'
+								WHERE order_id=". $db->realEscapeSingle($user_home['order_id']));
 								 
 					$db->query("UPDATE OGP_DB_PREFIXbilling_orders
-								SET finish_date='$finish_date' 
-								WHERE order_id=".$user_home['order_id']);
+								SET finish_date='" . $db->realEscapeSingle($finish_date) . "' 
+								WHERE order_id=".$db->realEscapeSingle($user_home['order_id']));
 								 
 					// Set payment/creation date
 					$date = date('d/m/Y H:i');
 					$db->query("UPDATE OGP_DB_PREFIXbilling_carts
 								SET date='$date'
-								WHERE cart_id=".$ipn['item_number']);
+								WHERE cart_id=".$db->realEscapeSingle($ipn['item_number']));
 				}
 				
 				$services = $db->resultQuery( "SELECT * 
 											   FROM OGP_DB_PREFIXbilling_services
-											   WHERE service_id=".$user_home['service_id']);
+											   WHERE service_id=".$db->realEscapeSingle($user_home['service_id']));
 				$service = $services[0];
 				$user_id = $user_home['user_id'];
 				$db->assignHomeTo("user", $user_id, $home_id, $service['access_rights']);
 				
 				$query = "UPDATE OGP_DB_PREFIXbilling_carts
 						  SET paid=3
-						  WHERE cart_id=".$ipn['item_number'];
+						  WHERE cart_id=".$db->realEscapeSingle($ipn['item_number']);
 			}
 		}
 	}
@@ -253,7 +253,7 @@ if ($verified AND isset( $ipn['payment_status'] ) )
 	{
 		$query = "UPDATE OGP_DB_PREFIXbilling_carts
 				  SET paid=2
-				  WHERE cart_id=".$ipn['item_number'];
+				  WHERE cart_id=".$db->realEscapeSingle($ipn['item_number']);
 	}
 	elseif( $ipn['payment_status']=="Reversed" OR $ipn['payment_status']=="Refunded" OR $ipn['payment_status']=="Denied" OR $ipn['payment_status']=="Expired" OR $ipn['payment_status']=="Failed" OR $ipn['payment_status']=="Voided" OR $ipn['payment_status']=="Partially_Refunded" )
 	{
@@ -261,7 +261,7 @@ if ($verified AND isset( $ipn['payment_status'] ) )
 				 
 		$query = "UPDATE OGP_DB_PREFIXbilling_carts
 				  SET paid=0
-				  WHERE cart_id=".$ipn['item_number'];
+				  WHERE cart_id=".$db->realEscapeSingle($ipn['item_number']);
 		
 		foreach($user_homes as $user_home)
 		{

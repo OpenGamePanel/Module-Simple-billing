@@ -34,8 +34,8 @@ function exec_ogp_module()
 		$service = $_POST['service_id'];
 		
 		$change_description = "UPDATE OGP_DB_PREFIXbilling_services
-						       SET description ='".$new_description."'
-						       WHERE service_id=".$service;
+						       SET description ='".$db->realEscapeSingle($new_description)."'
+						       WHERE service_id=".$db->realEscapeSingle($service);
 		$save = $db->query($change_description);
 	}
 	?>
@@ -185,7 +185,7 @@ function exec_ogp_module()
 			  <td align="left">
 			  <select name='ip_id'>
 			<?php
-			$qry_ip = "SELECT ip_id,ip FROM OGP_DB_PREFIXremote_server_ips WHERE remote_server_id=".$row['remote_server_id'];
+			$qry_ip = "SELECT ip_id,ip FROM OGP_DB_PREFIXremote_server_ips WHERE remote_server_id=".$db->realEscapeSingle($row['remote_server_id']);
 			$ips = $db->resultQuery($qry_ip);
 
 			foreach($ips as $ip)

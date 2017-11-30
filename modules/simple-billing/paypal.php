@@ -9,7 +9,7 @@ function exec_ogp_module()
 
 	if(!empty($cart_id))
 	{		
-		$orders = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$cart_id );
+		$orders = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$db->realEscapeSingle($cart_id));
 		if( !empty( $orders ) )
 		{
 			$cart['price'] = 0;
@@ -31,7 +31,7 @@ function exec_ogp_module()
 			{
 				$db->query("UPDATE " . $table_prefix . "billing_carts
 												SET paid=1
-												WHERE cart_id=".$cart_id);
+												WHERE cart_id=".$db->realEscapeSingle($cart_id));
 				$view->refresh("home.php?m=simple-billing&p=cart",0);
 			}
 			else
