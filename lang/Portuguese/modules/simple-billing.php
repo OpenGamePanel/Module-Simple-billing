@@ -63,7 +63,7 @@ define('rcon_pass', "Senha do RCON");
 define('ftp_pass', "Senha de FTP");
 define('available_ips', "IPs disponíveis");
 define('max_players', "Max. Players");
-define('invoice_duration', "Tempo previsto e de uso do produto/serviço");
+define('invoice_duration', "Duração do artigo");
 define('calculate_price', "Calcule o preço");
 define('buy', "COMPRAR");
 define('back_to_list', "Voltar à lista");
