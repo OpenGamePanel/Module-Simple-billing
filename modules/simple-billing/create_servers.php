@@ -163,10 +163,11 @@ function exec_ogp_module()
 						$modname = ( $installer_name == '90' and !preg_match("/(cstrike|valve)/", $modkey) ) ? $modkey : '';
 						$betaname = isset($mod_xml->betaname) ? $mod_xml->betaname : '';
 						$betapwd = isset($mod_xml->betapwd) ? $mod_xml->betapwd : '';
+						$arch = isset($mod_xml->steam_bitness) ? $mod_xml->steam_bitness : '';
 						
 						$remote->steam_cmd( $home_id,$home_info['home_path'],$installer_name,$modname,
 											$betaname,$betapwd,$login,$pass,$settings['steam_guard'],
-											$exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os ); 
+											$exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os,'',$arch); 
 					}
 				}
 				// -Rsync
