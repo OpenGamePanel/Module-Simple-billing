@@ -45,7 +45,7 @@ $cart_price_info = $db->resultQuery( "SELECT price,tax_amount,currency
 									 OGP_DB_PREFIXbilling_orders AS orders  
 									 ON 
 									 orders.cart_id=cart.cart_id
-									 WHERE cart.cart_id=".$cart_id);
+									 WHERE cart.cart_id=".$db->realEscapeSingle($cart_id));
 
 if(!$cart_price_info or empty($cart_price_info))	
 	exit();
@@ -83,11 +83,11 @@ if (strtoupper(md5($concatFields)) == $_POST['md5sig']
 									 OGP_DB_PREFIXbilling_orders AS orders  
 									 ON 
 									 orders.cart_id=cart.cart_id
-									 WHERE cart.cart_id=".$cart_id);
+									 WHERE cart.cart_id=".$db->realEscapeSingle($cart_id));
 
 	$query = "UPDATE " . $table_prefix . "billing_carts
 			  SET paid=1
-			  WHERE cart_id=".$cart_id;
+			  WHERE cart_id=".$db->realEscapeSingle($cart_id);
 					  
 	foreach($user_homes as $user_home)
 	{			
@@ -121,26 +121,26 @@ if (strtoupper(md5($concatFields)) == $_POST['md5sig']
 				}
 				//Set the expiration date to the new order
 				$db->query( "UPDATE " . $table_prefix . "billing_orders
-							 SET end_date='$end_date'
-							 WHERE order_id=".$user_home['order_id']);
+							 SET end_date='" . $db->realEscapeSingle($end_date) . "'
+							 WHERE order_id=".$db->realEscapeSingle($user_home['order_id']));
 							 
 				// Set payment/creation date
 				$date = date('d/m/Y H:i');
 				$db->query( "UPDATE OGP_DB_PREFIXbilling_carts
-							 SET date='$date'
+							 SET date='" . $db->realEscapeSingle($date) . "'
 							 WHERE cart_id=".$cart_id);
 			}
 			
 			$services = $db->resultQuery( "SELECT * 
 										   FROM OGP_DB_PREFIXbilling_services
-										   WHERE service_id=".$user_home['service_id']);
+										   WHERE service_id=".$db->realEscapeSingle($user_home['service_id']));
 			$service = $services[0];
 			$user_id = $user_home['user_id'];
 			$db->assignHomeTo("user", $user_id, $home_id, $service['access_rights']);
 			
 			$query = "UPDATE " . $table_prefix . "billing_carts
 					  SET paid=3
-					  WHERE cart_id=".$cart_id;
+					  WHERE cart_id=".$db->realEscapeSingle($cart_id);
 		}
 	}
 		

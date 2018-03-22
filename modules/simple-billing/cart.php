@@ -84,7 +84,7 @@ function exec_ogp_module()
 	
 	if( isset( $_POST["extend"] ) or isset( $_POST["extend_and_pay_paypal"] ) or isset( $_POST["extend_and_pay_paygol"] ) or isset( $_POST["extend_and_pay_skrill"] ) or isset( $_POST["extend_and_pay_robokassa"] ) )
 	{
-		$orders = $db->resultQuery("SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE order_id=".$_POST['order_id']);
+		$orders = $db->resultQuery("SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE order_id=".$db->realEscapeSingle($_POST['order_id']));
 		// Fill The Cart on DB
 		$cart_id = assignOrdersToCart($user_id,$settings['tax_amount'],$settings['currency']);
 		foreach($orders as $order) 
@@ -101,7 +101,7 @@ function exec_ogp_module()
 			
 			$services = $db->resultQuery( "SELECT * 
 										   FROM OGP_DB_PREFIXbilling_services 
-										   WHERE service_id=".$service_id );
+										   WHERE service_id=".$db->realEscapeSingle($service_id) );
 			$service = $services[0];
 			//Calculating Price
 			switch ($_POST['invoice_duration']) 
@@ -122,7 +122,7 @@ function exec_ogp_module()
 			//Change the old order expiration to -2 so it can not be extended, since there is a new order managing the same game home.
 			$db->query( "UPDATE OGP_DB_PREFIXbilling_orders
 						 SET end_date=-2
-						 WHERE order_id=".$_POST['order_id']);
+						 WHERE order_id=".$db->realEscapeSingle($_POST['order_id']));
 		}
 		
 		if ( !empty( $cart_id ) and isset( $_POST["extend_and_pay_paypal"] ) and $settings['paypal'] == "1" )
@@ -151,11 +151,11 @@ function exec_ogp_module()
 			unset($_SESSION['CART'][$cart_id]);
 		}
 		$order_id = $_POST['order_id'];
-		$db->query( "DELETE FROM OGP_DB_PREFIXbilling_orders WHERE order_id=".$order_id );
-		$orders_in_cart = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$cart_id );
+		$db->query( "DELETE FROM OGP_DB_PREFIXbilling_orders WHERE order_id=".$db->realEscapeSingle($order_id) );
+		$orders_in_cart = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$db->realEscapeSingle($cart_id) );
 		if( !$orders_in_cart )
 		{
-			$db->query( "DELETE FROM OGP_DB_PREFIXbilling_carts WHERE cart_id=".$cart_id );
+			$db->query( "DELETE FROM OGP_DB_PREFIXbilling_carts WHERE cart_id=".$db->realEscapeSingle($cart_id) );
 		}
 
 	}
@@ -184,7 +184,7 @@ function exec_ogp_module()
 		$carts[0] = $_SESSION['CART'];
 	}
 
-	$user_carts = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_carts WHERE user_id=".$user_id );
+	$user_carts = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_carts WHERE user_id=".$db->realEscapeSingle($user_id) );
 	
 	if( $user_carts >=1 )
 	{
@@ -194,7 +194,7 @@ function exec_ogp_module()
 			$carts[$cart_id] = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_carts AS cart JOIN
 																OGP_DB_PREFIXbilling_orders AS orders  
 																ON orders.cart_id=cart.cart_id
-																WHERE cart.cart_id=".$cart_id );
+																WHERE cart.cart_id=".$db->realEscapeSingle($cart_id) );
 		}
 	}
 	

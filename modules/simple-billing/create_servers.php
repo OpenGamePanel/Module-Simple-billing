@@ -6,12 +6,12 @@ function exec_ogp_module()
 	global $db,$view,$settings;
 	$user_id = $_SESSION['user_id'];
 	$cart_id = $_POST['cart_id'];
-	$cart_paid = $db->resultQuery( "SELECT paid FROM OGP_DB_PREFIXbilling_carts WHERE paid=1 AND cart_id=".$cart_id );
+	$cart_paid = $db->resultQuery( "SELECT paid FROM OGP_DB_PREFIXbilling_carts WHERE paid=1 AND cart_id=".$db->realEscapeSingle($cart_id) );
 	$isAdmin = $db->isAdmin( $_SESSION['user_id'] );
 	if ( $isAdmin )
-		$orders = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$cart_id );
+		$orders = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$db->realEscapeSingle($cart_id) );
 	else
-		$orders = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$cart_id." AND user_id=".$user_id );
+		$orders = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$db->realEscapeSingle($cart_id)." AND user_id=".$db->realEscapeSingle($user_id) );
 		
 	if( !empty($orders) and !empty($cart_paid) )
 	{
@@ -30,7 +30,7 @@ function exec_ogp_module()
 			//Query service info	
 			$service = $db->resultQuery( "SELECT * 
 							   FROM OGP_DB_PREFIXbilling_services 
-							   WHERE service_id=".$service_id );
+							   WHERE service_id=".$db->realEscapeSingle($service_id) );
 							   
 			if( !empty( $service[0] ) )
 			{
@@ -105,10 +105,10 @@ function exec_ogp_module()
 				$mod_cfg_id = $home_info['mods'][$mod_id]['mod_cfg_id'];
 				
 				//Get Preinstall commands from db
-				$game_mod_precmd = $db->resultQuery("SELECT DISTINCT precmd FROM OGP_DB_PREFIXgame_mods WHERE mod_id='$mod_id'");
+				$game_mod_precmd = $db->resultQuery("SELECT DISTINCT precmd FROM OGP_DB_PREFIXgame_mods WHERE mod_id='" . $db->realEscapeSingle($mod_id) . "'");
 				if ($game_mod_precmd[0]['precmd'] === NULL OR empty($game_mod_precmd[0]['precmd']))
 				{
-					$config_mod_precmd = $db->resultQuery("SELECT DISTINCT def_precmd FROM OGP_DB_PREFIXconfig_mods WHERE mod_cfg_id='$mod_cfg_id'");
+					$config_mod_precmd = $db->resultQuery("SELECT DISTINCT def_precmd FROM OGP_DB_PREFIXconfig_mods WHERE mod_cfg_id='" . $db->realEscapeSingle($mod_cfg_id) . "'");
 					if ($config_mod_precmd[0]['def_precmd'] === NULL OR empty($config_mod_precmd[0]['def_precmd']))
 						$precmd = "";
 					else
@@ -118,10 +118,10 @@ function exec_ogp_module()
 					$precmd = $game_mod_precmd[0]['precmd'];
 					
 				//Get Postinstall commands from db
-				$game_mod_postcmd = $db->resultQuery("SELECT DISTINCT postcmd FROM OGP_DB_PREFIXgame_mods WHERE mod_id='$mod_id'");
+				$game_mod_postcmd = $db->resultQuery("SELECT DISTINCT postcmd FROM OGP_DB_PREFIXgame_mods WHERE mod_id='" . $db->realEscapeSingle($mod_id) . "'");
 				if ($game_mod_postcmd[0]['postcmd'] === NULL OR empty($game_mod_postcmd[0]['postcmd']))
 				{
-					$config_mod_postcmd = $db->resultQuery("SELECT DISTINCT def_postcmd FROM OGP_DB_PREFIXconfig_mods WHERE mod_cfg_id='$mod_cfg_id'");
+					$config_mod_postcmd = $db->resultQuery("SELECT DISTINCT def_postcmd FROM OGP_DB_PREFIXconfig_mods WHERE mod_cfg_id='" . $db->realEscapeSingle($mod_cfg_id) . "'");
 					if ($config_mod_postcmd[0]['def_postcmd'] === NULL OR empty($config_mod_postcmd[0]['def_postcmd']))
 						$postcmd = "";
 					else
@@ -163,10 +163,11 @@ function exec_ogp_module()
 						$modname = ( $installer_name == '90' and !preg_match("/(cstrike|valve)/", $modkey) ) ? $modkey : '';
 						$betaname = isset($mod_xml->betaname) ? $mod_xml->betaname : '';
 						$betapwd = isset($mod_xml->betapwd) ? $mod_xml->betapwd : '';
+						$arch = isset($mod_xml->steam_bitness) ? $mod_xml->steam_bitness : '';
 						
 						$remote->steam_cmd( $home_id,$home_info['home_path'],$installer_name,$modname,
 											$betaname,$betapwd,$login,$pass,$settings['steam_guard'],
-											$exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os ); 
+											$exec_folder_path,$exec_path,$precmd,$postcmd,$cfg_os,'',$arch); 
 					}
 				}
 				// -Rsync
@@ -237,30 +238,29 @@ function exec_ogp_module()
 			}
 			// set order expire date
 			$db->query("UPDATE OGP_DB_PREFIXbilling_orders
-						SET end_date='$end_date' 
-						WHERE order_id=".$order_id);
+						SET end_date='" . $db->realEscapeSingle($end_date) . "' 
+						WHERE order_id=".$db->realEscapeSingle($order_id));
 	
 			$db->query("UPDATE OGP_DB_PREFIXbilling_orders
-						SET finish_date='$finish_date' 
-						WHERE order_id=".$order_id);
+						SET finish_date='" . $db->realEscapeSingle($finish_date) . "' 
+						WHERE order_id=".$db->realEscapeSingle($order_id));
 						
 			// Save home id created by this order
 			$db->query("UPDATE OGP_DB_PREFIXbilling_orders
-						SET home_id=$home_id 
-						WHERE order_id=".$order_id);
+						SET home_id='" . $db->realEscapeSingle($home_id) . "' WHERE order_id=".$db->realEscapeSingle($order_id));
 						
 		}
 
 		//Update Cart Payment Status as 3(paid and installed)
 		$db->query("UPDATE OGP_DB_PREFIXbilling_carts
 					SET paid=3
-					WHERE cart_id=".$cart_id);
+					WHERE cart_id=".$db->realEscapeSingle($cart_id));
 
 		// Set payment/creation date
 		$date = date('d/m/Y H:i');
 		$db->query("UPDATE OGP_DB_PREFIXbilling_carts 
-					SET date='$date' 
-					WHERE cart_id=".$cart_id);
+					SET date='" . $db->realEscapeSingle($date) . "' 
+					WHERE cart_id=".$db->realEscapeSingle($cart_id));
 
 		//Refresh to Game Monitor.
 		$view->refresh("home.php?m=gamemanager&p=game_monitor");

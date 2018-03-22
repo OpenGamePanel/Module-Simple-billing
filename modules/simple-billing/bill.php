@@ -13,13 +13,14 @@ function exec_ogp_module()
 
 	$user_id = $_SESSION['user_id'];
 	$cart_id = $_POST['cart_id'];
+	$cart_id = $db->realEscapeSingle($cart_id);
 	$isAdmin = $db->isAdmin( $_SESSION['user_id'] );
 	if ( $isAdmin )
-		$orders = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$cart_id );
+		$orders = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$db->realEscapeSingle($cart_id) );
 	else
-		$orders = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$cart_id." AND user_id=".$user_id );
+		$orders = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$db->realEscapeSingle($cart_id)." AND user_id=".$db->realEscapeSingle($user_id) );
 		
-	$cart = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_carts WHERE cart_id=".$cart_id );
+	$cart = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_carts WHERE cart_id=".$db->realEscapeSingle($cart_id) );
 			
 	if( !empty($orders) )
 	{
@@ -66,7 +67,7 @@ function exec_ogp_module()
 			$invoice_duration = $order['invoice_duration'];
 			$price = $order['price'];
 			$subtotal += $price;
-			$qry_service = "SELECT DISTINCT price_hourly, price_monthly, price_year FROM ".$table_prefix."billing_services WHERE service_id=".$service_id;
+			$qry_service = "SELECT DISTINCT price_hourly, price_monthly, price_year FROM ".$table_prefix."billing_services WHERE service_id=".$db->realEscapeSingle($service_id);
 			$result_service = $db->resultQuery($qry_service);
 			$row_service = $result_service[0];
 

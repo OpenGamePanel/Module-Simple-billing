@@ -7,14 +7,14 @@ function exec_ogp_module()
 	
 	if(isset($_POST['remove']))
 	{
-		$query_delete_order = $db->query("DELETE FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$_POST['cart_id']);
-		$query_delete_order = $db->query("DELETE FROM OGP_DB_PREFIXbilling_carts WHERE cart_id=".$_POST['cart_id']);
+		$query_delete_order = $db->query("DELETE FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$db->realEscapeSingle($_POST['cart_id']));
+		$query_delete_order = $db->query("DELETE FROM OGP_DB_PREFIXbilling_carts WHERE cart_id=".$db->realEscapeSingle($_POST['cart_id']));
 	}
 	if(isset($_POST['paid']))
 	{
 		$query_set_as_paid =  $db->query("UPDATE OGP_DB_PREFIXbilling_carts
 										  SET paid=1
-										  WHERE cart_id=".$_POST['cart_id']);
+										  WHERE cart_id=".$db->realEscapeSingle($_POST['cart_id']));
 	}
 	$status_array = array ( "not_paid" => 0,
 							"paid" => 1,
@@ -43,7 +43,7 @@ function exec_ogp_module()
 
 	foreach($status_array as $status => $paid_value)
 	{
-		$carts = $db->resultQuery("SELECT * FROM OGP_DB_PREFIXbilling_carts WHERE paid=$paid_value;");
+		$carts = $db->resultQuery("SELECT * FROM OGP_DB_PREFIXbilling_carts WHERE paid=" . $db->realEscapeSingle($paid_value) . ";");
 
 		if( $carts > 0 )
 		{
@@ -68,7 +68,7 @@ function exec_ogp_module()
 				}?>
 				</tr>
 				<?php  
-				$orders = $db->resultQuery("SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$cart['cart_id']);
+				$orders = $db->resultQuery("SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$db->realEscapeSingle($cart['cart_id']));
 				$subtotal = 0;
 				foreach($orders as $order) 
 				{

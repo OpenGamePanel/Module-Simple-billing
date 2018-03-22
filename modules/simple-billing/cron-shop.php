@@ -75,7 +75,7 @@ else
 		// Reset the invoice end date
 		$db->query( "UPDATE " . $table_prefix . "billing_orders
 					 SET end_date=-1
-					 WHERE order_id=".$user_home['order_id']);
+					 WHERE order_id=".$db->realEscapeSingle($user_home['order_id']));
 					 
 		echo "Home ID $home_id unassigned succesfull.";
 	}
@@ -108,16 +108,16 @@ else
 		// Set order as not installed
 		$db->query( "UPDATE " . $table_prefix . "billing_orders
 					 SET home_id=0
-					 WHERE cart_id=".$ipn['item_number']); 
+					 WHERE cart_id=".$db->realEscapeSingle($ipn['item_number'])); 
 					 
 		// Reset the invoice end date
 		$db->query( "UPDATE " . $table_prefix . "billing_orders
 					 SET end_date=-2
-					 WHERE order_id=".$user_home['order_id']);
+					 WHERE order_id=".$db->realEscapeSingle($user_home['order_id']));
 					 
 		$db->query( "UPDATE " . $table_prefix . "billing_orders
 					 SET finish_date=-2
-					 WHERE order_id=".$user_home['order_id']);
+					 WHERE order_id=".$db->realEscapeSingle($user_home['order_id']));
 					 
 		echo "Home ID $home_id finished completely.";
 	}
