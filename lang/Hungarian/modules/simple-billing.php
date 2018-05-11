@@ -27,7 +27,7 @@ define('OGP_LANG_available_invoice_types', "Elérhető számla típusok");
 define('OGP_LANG_hourly', "Óránkénti");
 define('OGP_LANG_monthly', "Havi");
 define('OGP_LANG_annually', "Évente");
-define('OGP_LANG_tax_amount', "Adó összege");
+define('OGP_LANG_tax_amount', "Adó mértéke");
 define('OGP_LANG_paypal_email', "PayPal e-mail");
 define('OGP_LANG_update_settings', "Beállítások frissítése");
 define('OGP_LANG_settings_updated', "Beállítások frissítve.");
