@@ -95,7 +95,7 @@ define('OGP_LANG_order_id', "ID Narudžbe");
 define('OGP_LANG_home_name', "Naziv Servera");
 define('OGP_LANG_tax', "Porez");
 define('OGP_LANG_pay_from', "Platiti preko %s");
-define('OGP_LANG_set_as_paid', "Postavi kao plaćeno");
+define('OGP_LANG_set_as_paid', "Postaviti kao plaćeno");
 define('OGP_LANG_create_server', "Kreirajte Server");
 define('OGP_LANG_see_invoice', "Pogledajte Račun");
 define('OGP_LANG_paid', "Plačeno");
