@@ -3,7 +3,6 @@ function curPageName()
 {
 	return substr($_SERVER["SCRIPT_NAME"],strrpos($_SERVER["SCRIPT_NAME"],"/")+1);
 }
-
 function exec_ogp_module()
 {
 	global $db,$view;
@@ -11,7 +10,6 @@ function exec_ogp_module()
 	$settings = $db->getSettings();
 	
 	$cart_id = $_GET['cart_id'];
-
 	if(!empty($cart_id))
 	{		
 		$orders = $db->resultQuery( "SELECT * FROM OGP_DB_PREFIXbilling_orders WHERE cart_id=".$db->realEscapeSingle($cart_id) );
@@ -47,7 +45,7 @@ function exec_ogp_module()
 				$current_folder_url = str_replace( curPageName(), "", $this_script);
 				
 				echo '<script src="http://www.paygol.com/micropayment/js/paygol.js" type="text/javascript"></script>'.
-					 '<form name="pg_frm">'.
+					 '<form name="pg_frm" method="post" action="https://www.paygol.com/pay" >'.
 				     ' <input type="hidden" name="pg_serviceid" value="'.$settings['paygol_service_id'].'">'."\n".
 					 ' <input type="hidden" name="pg_currency" value="'.$settings['currency'].'">'."\n".
 					 ' <input type="hidden" name="pg_name" value=\''.$cart['name'].'\'>'."\n".
