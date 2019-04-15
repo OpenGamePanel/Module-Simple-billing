@@ -105,7 +105,7 @@ define('OGP_LANG_paid_and_installed', "Оплачен и установлен");
 define('OGP_LANG_add_to_cart', "Добавить в корзину");
 define('OGP_LANG_cart_id', "ID корзины");
 define('OGP_LANG_order_desc', "Описание заказа");
-define('OGP_LANG_remove_from_cart', "Удалить с корзины");
+define('OGP_LANG_remove_from_cart', "Удалить из корзины");
 define('OGP_LANG_remove_cart', "Удалить корзину");
 define('OGP_LANG_there_are_no_orders_in_cart', "Нет заказов в корзине.");
 define('OGP_LANG_redirecting_to', "Перенаправление на %s...");
