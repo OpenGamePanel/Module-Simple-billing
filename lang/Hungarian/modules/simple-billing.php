@@ -92,7 +92,7 @@ define('OGP_LANG_success', "SIKERES");
 define('OGP_LANG_redirecting_to_game_monitor', "Átirányítás a Játékfigyelőbe...");
 define('OGP_LANG_starting_installations', "A telepítés indítása...");
 define('OGP_LANG_order_id', "Rendelés ID");
-define('OGP_LANG_home_name', "Szerver név");
+define('OGP_LANG_home_name', "Otthon neve");
 define('OGP_LANG_tax', "Adó");
 define('OGP_LANG_pay_from', "Fizetés erről %s");
 define('OGP_LANG_set_as_paid', "Megjelölés fizetettnek");
