@@ -151,7 +151,7 @@ class paypal_class {
       echo "<body onLoad=\"document.forms['paypal_form'].submit();\">\n";
       echo "<form method=\"post\" name=\"paypal_form\" ";
       echo "action=\"".$this->paypal_url."\">\n";
-
+	  echo '<input type="hidden" name="cmd" value="_xclick">';
       foreach ($this->fields as $name => $value) {
          echo "<input type=\"hidden\" name=\"$name\" value=\"$value\"/>\n";
       }      
@@ -267,7 +267,4 @@ class paypal_class {
  
       echo "</table><br>"; 
    }
-}         
-
-
- 
+}
