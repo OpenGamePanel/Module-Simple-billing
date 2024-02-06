@@ -71,40 +71,44 @@ function exec_ogp_module()
 		return;
 	}
 	
-	foreach ($services as $key => $row) {
-		$service_id[$key] = $row['service_id'];
-		$home_cfg_id[$key] = $row['home_cfg_id'];
-		$mod_cfg_id[$key] = $row['mod_cfg_id'];
-		$service_name[$key] = $row['service_name'];
-		$remote_server_id[$key] = $row['remote_server_id'];
-		$slot_max_qty[$key] = $row['slot_max_qty'];
-		$slot_min_qty[$key] = $row['slot_min_qty'];
-		$price_hourly[$key] = $row['price_hourly'];
-		$price_monthly[$key] = $row['price_monthly'];
-		$price_year[$key] = $row['price_year'];
-		$description[$key] = $row['description'];
-		$img_url[$key] = $row['img_url'];
-		$ftp[$key] = $row['ftp'];
-		$install_method[$key] = $row['install_method'];
-		$manual_url[$key] = $row['manual_url'];
-		$access_rights[$key] = $row['access_rights'];
+	if(is_array($services) && count($services) > 0){
+	
+		foreach ($services as $key => $row) {
+			$service_id[$key] = $row['service_id'];
+			$home_cfg_id[$key] = $row['home_cfg_id'];
+			$mod_cfg_id[$key] = $row['mod_cfg_id'];
+			$service_name[$key] = $row['service_name'];
+			$remote_server_id[$key] = $row['remote_server_id'];
+			$slot_max_qty[$key] = $row['slot_max_qty'];
+			$slot_min_qty[$key] = $row['slot_min_qty'];
+			$price_hourly[$key] = $row['price_hourly'];
+			$price_monthly[$key] = $row['price_monthly'];
+			$price_year[$key] = $row['price_year'];
+			$description[$key] = $row['description'];
+			$img_url[$key] = $row['img_url'];
+			$ftp[$key] = $row['ftp'];
+			$install_method[$key] = $row['install_method'];
+			$manual_url[$key] = $row['manual_url'];
+			$access_rights[$key] = $row['access_rights'];
+		}
+		array_multisort($service_name,
+						$service_id,
+						$home_cfg_id,
+						$mod_cfg_id,
+						$remote_server_id,
+						$slot_max_qty,
+						$slot_min_qty,
+						$price_hourly,
+						$price_monthly,
+						$price_year,
+						$description,
+						$img_url,
+						$ftp,
+						$install_method,
+						$manual_url,
+						$access_rights, SORT_DESC, $services);
 	}
-	array_multisort($service_name,
-					$service_id,
-					$home_cfg_id,
-					$mod_cfg_id,
-					$remote_server_id,
-					$slot_max_qty,
-					$slot_min_qty,
-					$price_hourly,
-					$price_monthly,
-					$price_year,
-					$description,
-					$img_url,
-					$ftp,
-					$install_method,
-					$manual_url,
-					$access_rights, SORT_DESC, $services);
+	
 	?>
 	<div style="border-left:10px solid transparent;">
 	<?php		
